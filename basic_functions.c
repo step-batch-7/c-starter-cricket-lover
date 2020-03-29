@@ -1,13 +1,15 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
 int square(int);
 int cube(int);
-float average_of_three(int, int, int);
-float simple_interest(int, int, int);
 float convert_to_fahrenheit(int);
 float convert_to_centigrade(int);
+float average_of_three(int, int, int);
+float simple_interest(int, int, int);
+float compound_interest(int, int, int);
 
 unsigned char is_even(int num)
 {
@@ -29,6 +31,16 @@ int cube(int num)
 	return num * square(num);
 }
 
+float convert_to_fahrenheit(int centigrade)
+{
+	return (centigrade * 9/5.00) + 32;
+}
+
+float convert_to_centigrade(int fahrenheit)
+{
+	return (fahrenheit - 32) * 5/9;
+}
+
 float average_of_three(int num1, int num2, int num3)
 {
 	return (num1 + num2 + num3) / 3.00;
@@ -39,15 +51,9 @@ float simple_interest(int principle, int rate, int time)
 	return (principle * time * rate) / 100.00;
 }
 
-float convert_to_fahrenheit(int centigrade)
+float compound_interest(int principle, int rate, int time)
 {
-	return (centigrade * 9/5.00) + 32;
-
-}
-
-float convert_to_centigrade(int fahrenheit)
-{
-	return (fahrenheit - 32) * 5/9;
+	return (principle * pow(1+rate/100.00, time)) - principle;
 }
 
 int main(void)
@@ -66,5 +72,6 @@ int main(void)
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
 	printf("Simple Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, simple_interest(num1,num2,num3));
+	printf("Compound Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, compound_interest(num1,num2,num3));
 	return 0;
 }
