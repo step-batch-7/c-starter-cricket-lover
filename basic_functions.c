@@ -10,6 +10,8 @@ float convert_to_centigrade(int);
 float average_of_three(int, int, int);
 float simple_interest(int, int, int);
 float compound_interest(int, int, int);
+int greater_of_two(int, int);
+int greatest_of_three(int, int, int);
 
 unsigned char is_even(int num)
 {
@@ -46,6 +48,16 @@ float average_of_three(int num1, int num2, int num3)
 	return (num1 + num2 + num3) / 3.00;
 }
 
+int greater_of_two(int num1, int num2)
+{
+	return num1>num2 ? num1 :num2;
+}
+
+int greatest_of_three(int num1, int num2, int num3)
+{
+	return greater_of_two(greater_of_two(num1, num2), num3);
+}
+
 float simple_interest(int principle, int rate, int time)
 {
 	return (principle * time * rate) / 100.00;
@@ -71,6 +83,7 @@ int main(void)
 	printf("enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
+	printf("greatest of %d, %d, %d is %d\n", num1, num2, num3, greatest_of_three(num1, num2, num3));
 	printf("Simple Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, simple_interest(num1,num2,num3));
 	printf("Compound Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, compound_interest(num1,num2,num3));
 	return 0;
