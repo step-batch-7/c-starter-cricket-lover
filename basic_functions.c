@@ -6,6 +6,7 @@ int square(int);
 int cube(int);
 float average_of_three(int, int, int);
 float simple_interest(int, int, int);
+float convert_to_fahrenheit(int);
 
 unsigned char is_even(int num)
 {
@@ -32,9 +33,15 @@ float average_of_three(int num1, int num2, int num3)
 	return (num1 + num2 + num3) / 3.00;
 }
 
-float simple_interest(int principle, int time, int rate)
+float simple_interest(int principle, int rate, int time)
 {
 	return (principle * time * rate) / 100.00;
+}
+
+float convert_to_fahrenheit(int centigrade)
+{
+	return (centigrade * 9/5.00) + 32;
+
 }
 
 int main(void)
@@ -47,6 +54,7 @@ int main(void)
 	printf("%d is %s\n", number, is_odd(number) ? "odd" : "not odd");
 	printf("square of %d is %d\n", number, square(number));
 	printf("cube of %d is %d\n", number, cube(number));
+	printf("temperature of %d degrees centigrade in fahrenheit is %f\n", number, convert_to_fahrenheit(number));
 	printf("enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
