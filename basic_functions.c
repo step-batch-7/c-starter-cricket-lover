@@ -7,6 +7,7 @@ int cube(int);
 float average_of_three(int, int, int);
 float simple_interest(int, int, int);
 float convert_to_fahrenheit(int);
+float convert_to_centigrade(int);
 
 unsigned char is_even(int num)
 {
@@ -44,6 +45,11 @@ float convert_to_fahrenheit(int centigrade)
 
 }
 
+float convert_to_centigrade(int fahrenheit)
+{
+	return (fahrenheit - 32) * 5/9;
+}
+
 int main(void)
 {
 	int number;
@@ -55,6 +61,7 @@ int main(void)
 	printf("square of %d is %d\n", number, square(number));
 	printf("cube of %d is %d\n", number, cube(number));
 	printf("temperature of %d degrees centigrade in fahrenheit is %f\n", number, convert_to_fahrenheit(number));
+	printf("temperature of %d degrees fahrenheit in centigrade is %f\n", number, convert_to_centigrade(number));
 	printf("enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
