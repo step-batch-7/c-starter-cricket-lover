@@ -5,6 +5,7 @@ unsigned char is_odd(int);
 int square(int);
 int cube(int);
 float average_of_three(int, int, int);
+float simple_interest(int, int, int);
 
 unsigned char is_even(int num)
 {
@@ -31,6 +32,11 @@ float average_of_three(int num1, int num2, int num3)
 	return (num1 + num2 + num3) / 3.00;
 }
 
+float simple_interest(int principle, int time, int rate)
+{
+	return (principle * time * rate) / 100.00;
+}
+
 int main(void)
 {
 	int number;
@@ -44,5 +50,6 @@ int main(void)
 	printf("enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
+	printf("Simple Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, simple_interest(num1,num2,num3));
 	return 0;
 }
