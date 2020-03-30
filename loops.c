@@ -5,6 +5,7 @@ int fibonacci_series(int);
 unsigned char is_even(int);
 int print_odd_series(int);
 int print_even_series(int);
+int multiplication_table(int, int);
 
 unsigned long int factorial(int num)
 {
@@ -59,13 +60,30 @@ int print_even_series(int num)
 	return 0;
 }
 
+int multiplication_table(int num1, int num2)
+{
+	int product_value;
+	printf("multiplication table of %d upto %d is:\n", num1, num2);
+	for(int index = 1; index <= num2; index++)
+	{
+		product_value = num1 * index;
+		printf("%d * %d = %d\n", num1, index, product_value);
+	}
+	return 0;
+}
+
 int main(void)
 {
 	int number;
+	int num1, num2;
 	printf("Please enter a number:\n");
 	scanf("%d", &number);
 	printf("Factorial of %d is %lu\n", number, factorial(number));
 	fibonacci_series(number);
 	print_odd_series(number);
 	print_even_series(number);
+	printf("Please enter two numbers:\n");
+	scanf("%d%d", &num1, &num2);
+	multiplication_table(num1, num2);
+	return 0;
 }
