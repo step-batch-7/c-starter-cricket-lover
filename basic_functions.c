@@ -6,6 +6,7 @@ unsigned char is_odd(int);
 int square(int);
 int cube(int);
 int gcd(int, int);
+int lcm(int, int);
 float convert_to_fahrenheit(int);
 float convert_to_centigrade(int);
 float average_of_three(int, int, int);
@@ -44,6 +45,11 @@ int gcd(int num1, int num2)
 		num1 = remainder;
 	}
 	return num2;
+}
+
+int lcm(int num1, int num2)
+{
+	return (num1 * num2) / gcd(num1, num2);
 }
 
 float convert_to_fahrenheit(int centigrade)
@@ -102,5 +108,6 @@ int main(void)
 	printf("Please enter two numbers:\n");
 	scanf("%d%d", &num1, &num2);
 	printf("GCD of %d, %d is %d\n", num1, num2, gcd(num1, num2));
+	printf("LCM of %d, %d is %d\n", num1, num2, lcm(num1, num2));
 	return 0;
 }
