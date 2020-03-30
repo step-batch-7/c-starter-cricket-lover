@@ -7,6 +7,7 @@ int print_odd_series(int);
 int print_even_series(int);
 int print_multiplication_table(int, int);
 long int get_sum_of_n(int, int);
+long int get_product_of_n(int, int);
 
 unsigned long int get_factorial(int num)
 {
@@ -83,6 +84,16 @@ long int get_sum_of_n(int start, int end)
 	return total;
 }
 
+long int get_product_of_n(int start, int end)
+{
+	int total = 1;
+	for(int index = start; index <= end; index++)
+	{
+		total *= index;
+	}
+	return total;
+}
+
 int main(void)
 {
 	int number;
@@ -97,5 +108,6 @@ int main(void)
 	scanf("%d%d", &num1, &num2);
 	print_multiplication_table(num1, num2);
 	printf("Sum of numbers between %d and %d is %ld\n", num1, num2, get_sum_of_n(num1, num2));
+	printf("Product of numbers between %d and %d is %ld\n", num1, num2, get_product_of_n(num1, num2));
 	return 0;
 }
