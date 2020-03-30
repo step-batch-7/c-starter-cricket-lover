@@ -10,6 +10,7 @@ long int get_sum_of_n(int, int);
 long int get_product_of_n(int, int);
 int print_odds_in_range(int, int);
 int print_every_nth_number(int,int, int);
+long int sum_of_all_even(int, int);
 
 unsigned long int get_factorial(int num)
 {
@@ -116,6 +117,16 @@ int print_every_nth_number(int start, int end, int step)
 	return 0;
 }
 
+long int sum_of_all_even(int start, int end)
+{
+	long int total = 0;
+	for(int index = start; index <= end; index++)
+	{
+		total = is_even(index) ? total + index : total;
+	}
+	return total;
+}
+
 int main(void)
 {
 	int number;
@@ -135,5 +146,6 @@ int main(void)
 	printf("Please enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	print_every_nth_number(num1, num2, num3);
+	printf("Sum of all even numbers between %d and %d is %ld\n", num1, num2, sum_of_all_even(num1, num2));
 	return 0;
 }
