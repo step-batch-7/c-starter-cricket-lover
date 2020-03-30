@@ -9,6 +9,7 @@ int print_multiplication_table(int, int);
 long int get_sum_of_n(int, int);
 long int get_product_of_n(int, int);
 int print_odds_in_range(int, int);
+int print_every_nth_number(int,int, int);
 
 unsigned long int get_factorial(int num)
 {
@@ -105,10 +106,20 @@ int print_odds_in_range(int num1, int num2)
 	return 0;
 }
 
+int print_every_nth_number(int start, int end, int step)
+{
+	printf("Numbers between %d and %d with a gap of %d are:\n", start, end, step);
+	for(int index = start; index <= end; index+=step)
+	{
+		printf("%d\n", index);
+	}
+	return 0;
+}
+
 int main(void)
 {
 	int number;
-	int num1, num2;
+	int num1, num2, num3;
 	printf("Please enter a number:\n");
 	scanf("%d", &number);
 	printf("Factorial of %d is %lu\n", number, get_factorial(number));
@@ -121,5 +132,8 @@ int main(void)
 	printf("Sum of numbers between %d and %d is %ld\n", num1, num2, get_sum_of_n(num1, num2));
 	printf("Product of numbers between %d and %d is %ld\n", num1, num2, get_product_of_n(num1, num2));
 	print_odds_in_range(num1, num2);
+	printf("Please enter three numbers:\n");
+	scanf("%d%d%d", &num1, &num2, &num3);
+	print_every_nth_number(num1, num2, num3);
 	return 0;
 }
