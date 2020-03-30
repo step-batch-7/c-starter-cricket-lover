@@ -11,6 +11,7 @@ long int get_product_of_n(int, int);
 int print_odds_in_range(int, int);
 int print_every_nth_number(int,int, int);
 long int sum_of_all_even(int, int);
+int print_odd_backwards(int);
 
 unsigned long int get_factorial(int num)
 {
@@ -127,6 +128,16 @@ long int sum_of_all_even(int start, int end)
 	return total;
 }
 
+int print_odd_backwards(int num)
+{
+	printf("Backwards odd series from %d to 1 is:\n", num);
+	for(int index = num; index >= 1; index--)
+	{
+		!is_even(index) && printf("%d\n", index);
+	}
+	return 0;
+}
+
 int main(void)
 {
 	int number;
@@ -147,5 +158,6 @@ int main(void)
 	scanf("%d%d%d", &num1, &num2, &num3);
 	print_every_nth_number(num1, num2, num3);
 	printf("Sum of all even numbers between %d and %d is %ld\n", num1, num2, sum_of_all_even(num1, num2));
+	print_odd_backwards(number);
 	return 0;
 }
