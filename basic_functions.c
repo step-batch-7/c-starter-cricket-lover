@@ -5,6 +5,7 @@ unsigned char is_even(int);
 unsigned char is_odd(int);
 int square(int);
 int cube(int);
+int gcd(int, int);
 float convert_to_fahrenheit(int);
 float convert_to_centigrade(int);
 float average_of_three(int, int, int);
@@ -31,6 +32,18 @@ int square(int num)
 int cube(int num)
 {
 	return num * square(num);
+}
+
+int gcd(int num1, int num2)
+{
+	int remainder;
+	while(num1 > 0)
+	{
+		remainder = num2%num1;
+		num2 = num1;
+		num1 = remainder;
+	}
+	return num2;
 }
 
 float convert_to_fahrenheit(int centigrade)
@@ -72,19 +85,22 @@ int main(void)
 {
 	int number;
 	int num1, num2, num3;
-	printf("please enter a number:\n");
+	printf("Please enter a number:\n");
 	scanf("%d", &number);
 	printf("%d is %s\n", number, is_even(number) ? "even" : "not even");
 	printf("%d is %s\n", number, is_odd(number) ? "odd" : "not odd");
-	printf("square of %d is %d\n", number, square(number));
-	printf("cube of %d is %d\n", number, cube(number));
-	printf("temperature of %d degrees centigrade in fahrenheit is %f\n", number, convert_to_fahrenheit(number));
-	printf("temperature of %d degrees fahrenheit in centigrade is %f\n", number, convert_to_centigrade(number));
-	printf("enter three numbers:\n");
+	printf("Square of %d is %d\n", number, square(number));
+	printf("Cube of %d is %d\n", number, cube(number));
+	printf("Temperature of %d degrees centigrade in fahrenheit is %f\n", number, convert_to_fahrenheit(number));
+	printf("Temperature of %d degrees fahrenheit in centigrade is %f\n", number, convert_to_centigrade(number));
+	printf("Please enter three numbers:\n");
 	scanf("%d%d%d", &num1, &num2, &num3);
 	printf("Average of %d,%d,%d is %f\n", num1, num2, num3, average_of_three(num1,num2,num3));
-	printf("greatest of %d, %d, %d is %d\n", num1, num2, num3, greatest_of_three(num1, num2, num3));
+	printf("Greatest of %d, %d, %d is %d\n", num1, num2, num3, greatest_of_three(num1, num2, num3));
 	printf("Simple Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, simple_interest(num1,num2,num3));
 	printf("Compound Interest of principle:%d, rate:%d, period:%d  is %f\n", num1, num2, num3, compound_interest(num1,num2,num3));
+	printf("Please enter two numbers:\n");
+	scanf("%d%d", &num1, &num2);
+	printf("GCD of %d, %d is %d\n", num1, num2, gcd(num1, num2));
 	return 0;
 }
