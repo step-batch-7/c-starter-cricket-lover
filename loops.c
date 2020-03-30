@@ -8,6 +8,7 @@ int print_even_series(int);
 int print_multiplication_table(int, int);
 long int get_sum_of_n(int, int);
 long int get_product_of_n(int, int);
+int print_odds_in_range(int, int);
 
 unsigned long int get_factorial(int num)
 {
@@ -44,17 +45,17 @@ unsigned char is_even(int num)
 
 int print_odd_series(int num)
 {
-	printf("Even number series for %d is:\n", num);
+	printf("Odd number series upto %d is:\n", num);
 	for(int index = 1; index <= num; index++)
 	{
-		is_even(index) || printf("%d\n", index);
+		!is_even(index) && printf("%d\n", index);
 	}
 	return 0;
 }
 
 int print_even_series(int num)
 {
-	printf("Odd number series for %d is:\n", num);
+	printf("Even number series upto %d is:\n", num);
 	for(int index = 1; index <= num; index++)
 	{
 		is_even(index) && printf("%d\n", index);
@@ -94,6 +95,16 @@ long int get_product_of_n(int start, int end)
 	return total;
 }
 
+int print_odds_in_range(int num1, int num2)
+{
+	printf("Odd number between %d and %d are:\n", num1, num2);
+	for(int index = num1+1; index < num2; index++)
+	{
+		!is_even(index) && printf("%d\n", index);
+	}
+	return 0;
+}
+
 int main(void)
 {
 	int number;
@@ -109,5 +120,6 @@ int main(void)
 	print_multiplication_table(num1, num2);
 	printf("Sum of numbers between %d and %d is %ld\n", num1, num2, get_sum_of_n(num1, num2));
 	printf("Product of numbers between %d and %d is %ld\n", num1, num2, get_product_of_n(num1, num2));
+	print_odds_in_range(num1, num2);
 	return 0;
 }
